@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<div id="form">
+  <div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+      <div class="col-md-3 border-right">
+        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
+                                                                                     width="150px"
+                                                                                     src="{{user.image}}"><span
+          class="font-weight-bold">{{user.name}}</span><span
+          class="text-black-50">{{user.email}}</span><span> </span>
+        </div>
+      </div>
+      <div class="col-md-5 border-right">
+        <div class="p-3 py-5">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="text-right">Profile Settings</h4>
+          </div>
+          <form (ngSubmit)="onSubmit()" [formGroup]="userProfile">
+            <div class="row mt-2">
+              <div class="form-group col-12">
+                <input type="file" accept="image/*" (change)="onFileSelectedImage($event)"/>
+              </div>
+              <div class="col-md-12"><label class="labels">Name</label><input type="text" class="form-control"
+                                                                              placeholder="first name"
+                                                                              formControlName="name"></div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text"
+                                                                                       class="form-control"
+                                                                                       placeholder="enter phone number"
+                                                                                       formControlName="phone"></div>
+              <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control"
+                                                                                 placeholder="enter address"
+                                                                                 formControlName="address"></div>
+
+              <div class="col-md-12"><label class="labels">Check Password</label><input type="password"
+                                                                                        class="form-control"
+                                                                                        placeholder="enter address password"
+                                                                                        formControlName="password">
+              </div>
+
+            </div>
+            <div class="mt-5 text-center">
+              <button class="btn btn-primary profile-button">Save Profile</button>&nbsp;
+              <button class="btn btn-success profile-button" data-toggle="modal" data-target="#exampleModal">
+                Reset Password
+              </button>
+            </div>
+
+            <!-- Button trigger modal -->
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <h3  style="text-align: center">Change Password</h3>
+                  <div class="modal-header">
+
+
+                  </div>
+                  <form (ngSubmit)="change()" [formGroup]="changePassword">
+                    <div class="modal-body">
+                      <div class="container">
+                        <div class="col-md-12"><label class="labels">Old Password</label><input type="password" class="form-control"
+                                                                                           placeholder="enter old password"
+                                                                                           formControlName="old_password"></div>
+                        <div class="col-md-12"><label class="labels">New Password</label><input type="password" class="form-control"
+                                                                                           placeholder="enter new Password"
+                                                                                           formControlName="new_password"></div>
+                        <div class="col-md-12"><label class="labels">Confirm Password</label><input type="password" class="form-control"
+                                                                                           placeholder="enter confirm password"
+                                                                                           formControlName="new_password_confirmation"></div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button class="btn btn-primary">Save changes</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

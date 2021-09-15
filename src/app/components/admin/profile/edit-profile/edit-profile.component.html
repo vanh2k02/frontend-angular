@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+  <form class="form-horizontal" (ngSubmit)="onSubmit()" [formGroup]="formEdit">
+      <div id="legend">
+        <legend>Edit</legend>
+      </div>
+      <div class="control-group">
+        <!-- Username -->
+        <div class="form-group col-12">
+          <input type="file" accept="image/*" (change)="onFileSelectedImage($event)"/>
+        </div>
+        <label class="control-label" >Username</label>
+        <div class="controls">
+          <input type="text"  placeholder="" class="input-xlarge" formControlName="name">
+        </div>
+      </div>
+
+      <div class="control-group">
+        <!-- Username -->
+        <label class="control-label" >Address</label>
+        <div class="controls">
+          <input type="text" placeholder="" class="input-xlarge" formControlName="address">
+        </div>
+      </div>
+
+      <div class="control-group">
+        <!-- Username -->
+        <label class="control-label" >Phone</label>
+        <div class="controls">
+          <input type="number" placeholder="" class="input-xlarge" formControlName="phone">
+        </div>
+      </div>
+
+      <div class="control-group">
+        <!-- Username -->
+        <label class="control-label" >Check Password</label>
+        <div class="controls">
+          <input type="password" placeholder="***********" class="input-xlarge" formControlName="password">
+        </div>
+      </div>
+
+      <div class="control-group">
+        <!-- Button -->
+        <div class="controls">
+          <button class="btn btn-success">Edit</button>
+        </div>
+      </div>
+  </form>
+</div>
+

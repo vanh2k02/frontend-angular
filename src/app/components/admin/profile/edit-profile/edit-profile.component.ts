@@ -36,7 +36,6 @@ export class EditProfileComponent implements OnInit {
 
   onSubmit() {
     this.authService.edit(this.formEdit.value).subscribe(res => {
-      console.log(res);
       this.route.navigate(['admin/profile'])
     })
   }
@@ -51,7 +50,6 @@ export class EditProfileComponent implements OnInit {
     this.storage.upload(filePath, file).snapshotChanges().pipe(
       finalize(() => (fileRef.getDownloadURL().subscribe(url => {
         this.formEdit?.get('avatar')?.setValue(url);
-        console.log(url)
       })))
     ).subscribe();
   }

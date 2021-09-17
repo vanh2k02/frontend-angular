@@ -24,7 +24,6 @@ export class EditBrandComponent implements OnInit {
 
   ngOnInit(): void {
     this.brandService.showBrandById(this.id).subscribe(res => {
-      console.log(res)
       this.brand = res;
       this.formEditBrand = this.fb.group({
         name: [this.brand.brand_name],
@@ -51,7 +50,6 @@ export class EditBrandComponent implements OnInit {
     this.storage.upload(filePath, file).snapshotChanges().pipe(
       finalize(() => (fileRef.getDownloadURL().subscribe(url => {
         this.formEditBrand?.get('image')?.setValue(url);
-        console.log(url)
       })))
     ).subscribe();
   }

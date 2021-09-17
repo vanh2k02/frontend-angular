@@ -21,7 +21,6 @@ export class AdminMasterComponent implements OnInit {
   showProfile() {
     this.authService.showProfile().subscribe(res => {
       this.user = res;
-      console.log(res);
     })
   }
 

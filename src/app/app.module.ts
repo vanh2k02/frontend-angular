@@ -32,6 +32,9 @@ import { EditCategoryComponent } from './components/admin/admin-category/edit-ca
 import { CreateCategoryComponent } from './components/admin/admin-category/create-category/create-category.component';
 import {NgxPaginationModule} from "ngx-pagination";
 import { CreateBrandComponent } from './components/admin/admin-brand/create-brand/create-brand.component';
+import { AdminProductComponent } from './components/admin/admin-product/admin-product.component';
+import { EditProductComponent } from './components/admin/admin-product/edit-product/edit-product.component';
+import { CreateProductComponent } from './components/admin/admin-product/create-product/create-product.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,10 @@ import { CreateBrandComponent } from './components/admin/admin-brand/create-bran
     EditBrandComponent,
     EditCategoryComponent,
     CreateCategoryComponent,
-    CreateBrandComponent
+    CreateBrandComponent,
+    AdminProductComponent,
+    EditProductComponent,
+    CreateProductComponent
   ],
   imports: [
     BrowserModule,

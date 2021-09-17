@@ -30,7 +30,6 @@ export class UserHeaderComponent implements OnInit {
 
   logout() {
     this.authService.logout().subscribe(res => {
-      console.log(res);
       sessionStorage.clear();
       this.route.navigate(['login'])
     })
@@ -39,7 +38,6 @@ export class UserHeaderComponent implements OnInit {
   showProfile() {
     this.authService.showProfile().subscribe(res => {
       this.user = res;
-      console.log(res);
     })
   }
 }

@@ -11,7 +11,7 @@ export class AdminCategoryComponent implements OnInit {
   totalLength: any;
   page: number = 1;
   number = 2;
-
+  searchVal: any;
   constructor(private categoryService: CategoryService) {
   }
 
@@ -23,6 +23,7 @@ export class AdminCategoryComponent implements OnInit {
   showAllCategory() {
     this.categoryService.showAllCategory().subscribe(res => {
       this.categories = res;
+      this.searchVal=this.categories;
       this.totalLength = res.length;
     })
   }
@@ -33,7 +34,6 @@ export class AdminCategoryComponent implements OnInit {
 
   delete(id: any) {
     this.categoryService.delete(id).subscribe(res => {
-      console.log(res);
       this.showAllCategory();
     })
   }
@@ -41,4 +41,17 @@ export class AdminCategoryComponent implements OnInit {
   changePage(val: any) {
     this.number = val.target.value;
   }
+
+  findAllKeyWord(key: any) {
+    return this.categories.filter((val: { category_name: any; }) => {
+      return (val.category_name.toLowerCase().indexOf(key) != -1);
+    })
+  }
+
+  searchAll(val: any) {
+    let keyWord = val.target.value.toLowerCase();
+    this.categories = (keyWord) ? this.findAllKeyWord(keyWord) : this.searchVal;
+    return this.findAllKeyWord(keyWord);
+  }
+
 }

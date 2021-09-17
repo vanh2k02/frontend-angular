@@ -50,7 +50,6 @@ export class EditCategoryComponent implements OnInit {
     this.storage.upload(filePath, file).snapshotChanges().pipe(
       finalize(() => (fileRef.getDownloadURL().subscribe(url => {
         this.formEditCategory?.get('image')?.setValue(url);
-        console.log(url)
       })))
     ).subscribe();
   }

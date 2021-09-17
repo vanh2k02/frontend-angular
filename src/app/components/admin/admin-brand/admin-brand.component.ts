@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BrandService} from "../../../services/brand.service";
 
 @Component({
@@ -11,6 +11,7 @@ export class AdminBrandComponent implements OnInit {
   totalLength: any;
   page: number = 1;
   number = 2;
+  searchVal: any;
 
   constructor(private brandService: BrandService) {
   }
@@ -24,6 +25,7 @@ export class AdminBrandComponent implements OnInit {
     this.brandService.showAllBrand().subscribe(res => {
       this.brands = res;
       this.totalLength = res.length;
+      this.searchVal = this.brands;
     })
   }
 
@@ -33,7 +35,6 @@ export class AdminBrandComponent implements OnInit {
 
   delete(id: any) {
     this.brandService.delete(id).subscribe(res => {
-      console.log(res);
       this.showAllBrand();
     })
   }
@@ -41,4 +42,17 @@ export class AdminBrandComponent implements OnInit {
   changePage(val: any) {
     this.number = val.target.value;
   }
+
+  findAllKeyWord(key: any) {
+    return this.brands.filter((val: { brand_name: any; }) => {
+      return (val.brand_name.toLowerCase().indexOf(key) != -1);
+    })
+  }
+
+  searchAll(val: any) {
+    let keyWord = val.target.value.toLowerCase();
+    this.brands = (keyWord) ? this.findAllKeyWord(keyWord) : this.searchVal;
+    return this.findAllKeyWord(keyWord);
+  }
+
 }

@@ -36,7 +36,7 @@ export class AuthService {
     return this.http.post(environment.url_api + 'auth/edit-profile', data, {headers: this.setHeader()})
   }
 
-  changePassword(data:any): Observable<any> {
-    return this.http.post(environment.url_api+'auth/change-password',data,{headers:this.setHeader()});
+  changePassword(data: any): Observable<any> {
+    return this.http.post(environment.url_api + 'auth/change-password', data, {headers: this.setHeader()});
   }
 }

@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">STT</th>
+      <th scope="col">Category Name</th>
+      <th scope="col" colspan="4">Category Image</th>
+      <th scope="col">Drop category</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let category of categories;let i=index">
+      <th scope="row">{{i + 1}}</th>
+      <td><a routerLink="edit-category" (click)="findId(category.category_id)">{{category.category_name}}</a></td>
+      <td colspan="4"><img src="{{category.category_image}}" style="width: 300px"></td>
+      <td>
+        <button class="btn btn-danger" (click)="delete(category.category_id)"><i class="fas fa-trash"></i></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

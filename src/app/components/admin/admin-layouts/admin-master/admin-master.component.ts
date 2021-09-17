@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from "../../../../services/auth.service";
 
 @Component({
   selector: 'app-admin-master',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminMasterComponent implements OnInit {
 
-  constructor() { }
+  user: any;
+  role: any;
 
-  ngOnInit(): void {
+  constructor(private authService: AuthService) {
   }
 
+  ngOnInit(): void {
+    this.showProfile();
+  }
+
+  showProfile() {
+    this.authService.showProfile().subscribe(res => {
+      this.user = res;
+      console.log(res);
+    })
+  }
+
+  checkRole() {
+    if (this.user.role_id == 0) {
+      return this.role = false;
+    } else {
+      return this.role = true;
+    }
+  }
 }

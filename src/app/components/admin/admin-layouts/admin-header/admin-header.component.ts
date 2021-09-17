@@ -9,9 +9,10 @@ import {Router} from "@angular/router";
 })
 export class AdminHeaderComponent implements OnInit {
   user: any;
+  role: any;
 
   constructor(private authService: AuthService,
-              private route:Router) {
+              private route: Router) {
   }
 
   ngOnInit(): void {
@@ -32,4 +33,5 @@ export class AdminHeaderComponent implements OnInit {
       console.log(res);
     })
   }
+
 }

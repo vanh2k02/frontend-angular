@@ -25,6 +25,11 @@ import {ProfileUserComponent} from './components/page/profile-user/profile-user.
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {environment} from "../environments/environment";
+import { AdminCategoryComponent } from './components/admin/admin-category/admin-category.component';
+import { AdminBrandComponent } from './components/admin/admin-brand/admin-brand.component';
+import { EditBrandComponent } from './components/admin/admin-brand/edit-brand/edit-brand.component';
+import { EditCategoryComponent } from './components/admin/admin-category/edit-category/edit-category.component';
+import { CreateCategoryComponent } from './components/admin/admin-category/create-category/create-category.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +48,12 @@ import {environment} from "../environments/environment";
     RegisterComponent,
     ProfileComponent,
     EditProfileComponent,
-    ProfileUserComponent
+    ProfileUserComponent,
+    AdminCategoryComponent,
+    AdminBrandComponent,
+    EditBrandComponent,
+    EditCategoryComponent,
+    CreateCategoryComponent
   ],
   imports: [
     BrowserModule,

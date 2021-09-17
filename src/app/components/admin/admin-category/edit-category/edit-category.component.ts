@@ -4,6 +4,7 @@ import {finalize} from "rxjs/operators";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-edit-category',
@@ -17,7 +18,8 @@ export class EditCategoryComponent implements OnInit {
 
   constructor(private categoryService: CategoryService,
               private storage: AngularFireStorage,
-              private fb: FormBuilder,private route:Router) {
+              private fb: FormBuilder, private route: Router,
+              private location: Location) {
   }
 
   ngOnInit(): void {
@@ -34,7 +36,7 @@ export class EditCategoryComponent implements OnInit {
 
   onSubmit() {
     this.categoryService.updateCategory(this.formEditCategory.value, this.id).subscribe(res => {
-     this.route.navigate(['admin/category']);
+      this.route.navigate(['admin/category']);
     })
   }
 
@@ -51,5 +53,9 @@ export class EditCategoryComponent implements OnInit {
         console.log(url)
       })))
     ).subscribe();
+  }
+
+  back() {
+    this.location.back();
   }
 }

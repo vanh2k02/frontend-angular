@@ -8,6 +8,9 @@ import {CategoryService} from "../../../services/category.service";
 })
 export class AdminCategoryComponent implements OnInit {
   categories: any;
+  totalLength: any;
+  page: number = 1;
+  number = 2;
 
   constructor(private categoryService: CategoryService) {
   }
@@ -20,6 +23,7 @@ export class AdminCategoryComponent implements OnInit {
   showAllCategory() {
     this.categoryService.showAllCategory().subscribe(res => {
       this.categories = res;
+      this.totalLength = res.length;
     })
   }
 
@@ -34,4 +38,7 @@ export class AdminCategoryComponent implements OnInit {
     })
   }
 
+  changePage(val: any) {
+    this.number = val.target.value;
+  }
 }

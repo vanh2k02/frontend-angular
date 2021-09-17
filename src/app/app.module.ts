@@ -15,7 +15,7 @@ import {UserSidebarComponent} from './components/page/user-layouts/user-sidebar/
 import {UserDashboardComponent} from './components/page/user-dashboard/user-dashboard.component';
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {ProfileComponent} from './components/admin/profile/profile.component';
 import {EditProfileComponent} from './components/admin/profile/edit-profile/edit-profile.component';
@@ -30,6 +30,8 @@ import { AdminBrandComponent } from './components/admin/admin-brand/admin-brand.
 import { EditBrandComponent } from './components/admin/admin-brand/edit-brand/edit-brand.component';
 import { EditCategoryComponent } from './components/admin/admin-category/edit-category/edit-category.component';
 import { CreateCategoryComponent } from './components/admin/admin-category/create-category/create-category.component';
+import {NgxPaginationModule} from "ngx-pagination";
+import { CreateBrandComponent } from './components/admin/admin-brand/create-brand/create-brand.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import { CreateCategoryComponent } from './components/admin/admin-category/creat
     AdminBrandComponent,
     EditBrandComponent,
     EditCategoryComponent,
-    CreateCategoryComponent
+    CreateCategoryComponent,
+    CreateBrandComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,9 @@ import { CreateCategoryComponent } from './components/admin/admin-category/creat
     BrowserAnimationsModule,
     MatDialogModule,
     AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud")
+    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+    NgxPaginationModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

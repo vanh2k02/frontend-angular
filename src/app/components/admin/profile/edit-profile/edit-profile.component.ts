@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {AuthService} from "../../../../services/auth.service";
 import {finalize} from "rxjs/operators";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-edit-profile',
@@ -14,7 +15,8 @@ export class EditProfileComponent implements OnInit {
   user:any
   constructor(private fb: FormBuilder,
               private authService: AuthService,
-              private storage:AngularFireStorage) {
+              private storage:AngularFireStorage,
+              private route:Router) {
 
   }
 
@@ -35,6 +37,7 @@ export class EditProfileComponent implements OnInit {
   onSubmit() {
     this.authService.edit(this.formEdit.value).subscribe(res => {
       console.log(res);
+      this.route.navigate(['admin/profile'])
     })
   }
 

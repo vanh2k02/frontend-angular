@@ -14,6 +14,8 @@ import {AdminCategoryComponent} from "./components/admin/admin-category/admin-ca
 import {AdminBrandComponent} from "./components/admin/admin-brand/admin-brand.component";
 import {EditCategoryComponent} from "./components/admin/admin-category/edit-category/edit-category.component";
 import {CreateCategoryComponent} from "./components/admin/admin-category/create-category/create-category.component";
+import {EditBrandComponent} from "./components/admin/admin-brand/edit-brand/edit-brand.component";
+import {CreateBrandComponent} from "./components/admin/admin-brand/create-brand/create-brand.component";
 
 const routes: Routes = [
   {
@@ -62,6 +64,14 @@ const routes: Routes = [
         path: 'brand',
         component: AdminBrandComponent
       },
+      {
+        path: 'brand/edit-brand',
+        component: EditBrandComponent
+      },
+      {
+        path: 'create-brand',
+        component: CreateBrandComponent
+      }
     ], canActivate: [AuthGuard]
   },
   {

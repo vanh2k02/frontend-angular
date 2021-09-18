@@ -32,6 +32,7 @@ export class CreateProductComponent implements OnInit {
       image: [''],
       desc: [''],
       price: [''],
+      promotional_price: ['0'],
       brand_id: ['Brand Product'],
       category_id: ['Category Product']
     })

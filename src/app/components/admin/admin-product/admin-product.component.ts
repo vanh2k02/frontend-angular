@@ -23,7 +23,6 @@ export class AdminProductComponent implements OnInit {
 
   showAllProduct() {
     this.productService.showAllProduct().subscribe(res => {
-      console.log(res)
       this.products = res;
       this.searchVal=this.products;
       this.totalLength = res.length;

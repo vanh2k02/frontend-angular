@@ -4,9 +4,10 @@
   <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
       <div class="col-md-3 border-right">
-        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
-                                                                                     width="150px"
-                                                                                     src="{{product.image}}">
+        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><a href="{{product.image}}">
+          <img class="rounded-circle mt-5"
+               width="150px"
+               src="{{product.image}}"></a>
         </div>
       </div>
       <div class="col-md-5 border-right">
@@ -30,14 +31,16 @@
               <div class="col-md-12"><label class="labels">Description</label><textarea rows="5"
                                                                                         class="form-control"
                                                                                         placeholder="Trống"
-                                                                                        formControlName="desc"></textarea></div>
+                                                                                        formControlName="desc"></textarea>
+              </div>
 
             </div>
             <div class="row mt-2">
               <div class="col-md-12">
                 <select class="custom-select" formControlName="category_id">
                   <option selected>Category Product</option>
-                  <option *ngFor="let category of categories" value="{{category.category_id}}">{{category.category_name}}</option>
+                  <option *ngFor="let category of categories"
+                          value="{{category.category_id}}">{{category.category_name}}</option>
                 </select>
               </div>
             </div>

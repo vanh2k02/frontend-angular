@@ -40,7 +40,7 @@
             };let i=index">
       <th scope="row">{{i + 1}}</th>
       <td><a routerLink="edit-product" (click)="findId(product.product_id)">{{product.product_name}}</a></td>
-      <td colspan="4"><img src="{{product.image}}" style="width: 300px"></td>
+      <td colspan="4"><a href="{{product.image}}"><img src="{{product.image}}" style="width: 300px"></a></td>
       <td>{{product.category_name}}</td>
       <td>{{product.brand_name}}</td>
       <td>

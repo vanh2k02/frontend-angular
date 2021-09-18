@@ -38,7 +38,7 @@
             };let i=index">
       <th scope="row">{{i + 1}}</th>
       <td><a routerLink="edit-brand" (click)="findId(brand.brand_id)">{{brand.brand_name}}</a></td>
-      <td colspan="4"><img src="{{brand.brand_image}}" style="width: 300px"></td>
+      <td colspan="4"><a href="{{brand.brand_image}}"><img src="{{brand.brand_image}}" style="width: 300px"></a></td>
       <td>
         <button class="btn btn-danger" (click)="delete(brand.brand_id)"><i class="fas fa-trash"></i></button>
       </td>

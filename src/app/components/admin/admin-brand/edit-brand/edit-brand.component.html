@@ -4,9 +4,8 @@
   <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
       <div class="col-md-3 border-right">
-        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
-                                                                                     width="150px"
-                                                                                     src="{{brand.category_image}}">
+        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><a href="{{brand.brand_image}}">
+          <img src="{{brand.brand_image}}" style="width: 300px"></a>
         </div>
       </div>
       <div class="col-md-5 border-right">
@@ -27,7 +26,8 @@
               <div class="col-md-12"><label class="labels">Description</label><textarea rows="5"
                                                                                         class="form-control"
                                                                                         placeholder="Trống"
-                                                                                        formControlName="desc"></textarea></div>
+                                                                                        formControlName="desc"></textarea>
+              </div>
 
             </div>
             <div class="mt-5 text-center">

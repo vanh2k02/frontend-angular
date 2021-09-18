@@ -38,7 +38,7 @@
             };let i=index">
       <th scope="row">{{i + 1}}</th>
       <td><a routerLink="edit-category" (click)="findId(category.category_id)">{{category.category_name}}</a></td>
-      <td colspan="4"><img src="{{category.category_image}}" style="width: 300px"></td>
+      <td colspan="4"><a href="{{category.category_image}}"> <img src="{{category.category_image}}" style="width: 300px"></a></td>
       <td>
         <button class="btn btn-danger" (click)="delete(category.category_id)"><i class="fas fa-trash"></i></button>
       </td>

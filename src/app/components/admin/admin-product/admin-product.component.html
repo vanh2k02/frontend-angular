@@ -1,1 +1,54 @@
-<p>admin-product works!</p>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<div class="container">
+  <h1>Product List</h1>
+  <div>
+    <form
+      class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+      <div class="input-group">
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+               aria-label="Search" aria-describedby="basic-addon2" (keyup)="searchAll($event)">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button">
+            <i class="fas fa-search fa-sm"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+    <span id="paginate" style="font-size: 15px">Bạn muốn chia bao nhiêu thể loại 1 trang: <input type="number"
+                                                                                                 (input)="changePage($event)"
+                                                                                                 value="2"
+                                                                                                 style="width: 50px"
+                                                                                                 min="0"></span>
+  </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">STT</th>
+      <th scope="col">Product Name</th>
+      <th scope="col" colspan="4">Product Image</th>
+      <th scope="col">Category Product</th>
+      <th scope="col">Brand Product</th>
+      <th scope="col">Drop product</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of products| paginate: {
+              itemsPerPage:number,
+              currentPage:page,
+              totalItems:totalLength
+            };let i=index">
+      <th scope="row">{{i + 1}}</th>
+      <td><a routerLink="edit-product" (click)="findId(product.product_id)">{{product.product_name}}</a></td>
+      <td colspan="4"><img src="{{product.image}}" style="width: 300px"></td>
+      <td>{{product.category_name}}</td>
+      <td>{{product.brand_name}}</td>
+      <td>
+        <button class="btn btn-danger" (click)="delete(product.product_id)"><i class="fas fa-trash"></i></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
+

@@ -9,7 +9,6 @@ import {Router} from "@angular/router";
 })
 export class AdminHeaderComponent implements OnInit {
   user: any;
-  role: any;
 
   constructor(private authService: AuthService,
               private route: Router) {
@@ -21,8 +20,8 @@ export class AdminHeaderComponent implements OnInit {
 
   logout() {
     this.authService.logout().subscribe(res => {
-      console.log(res);
       sessionStorage.clear();
+      localStorage.clear();
       this.route.navigate(['login'])
     })
   }

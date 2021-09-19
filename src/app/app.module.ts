@@ -35,6 +35,8 @@ import { CreateBrandComponent } from './components/admin/admin-brand/create-bran
 import { AdminProductComponent } from './components/admin/admin-product/admin-product.component';
 import { EditProductComponent } from './components/admin/admin-product/edit-product/edit-product.component';
 import { CreateProductComponent } from './components/admin/admin-product/create-product/create-product.component';
+import { ProductDetailComponent } from './components/page/product-detail/product-detail.component';
+import { UserProductComponent } from './components/page/user-product/user-product.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import { CreateProductComponent } from './components/admin/admin-product/create-
     CreateBrandComponent,
     AdminProductComponent,
     EditProductComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    ProductDetailComponent,
+    UserProductComponent
   ],
   imports: [
     BrowserModule,

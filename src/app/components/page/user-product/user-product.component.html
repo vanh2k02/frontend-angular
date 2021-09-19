@@ -1,0 +1,119 @@
+<div class="header-inner">
+  <div class="container">
+    <div class="cat-nav-head">
+      <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-9 col-12">
+          <div class="menu-area">
+            <!-- Main Menu -->
+            <nav class="navbar navbar-expand-lg">
+              <div class="navbar-collapse">
+                <div class="nav-inner">
+                  <ul class="nav main-menu menu navbar-nav">
+                    <li class="active"><a routerLink="">Home</a></li>
+                    <li><a routerLink="/user-product">Product</a></li>
+                    <li><a href="#">Service</a></li>
+                    <li><a href="#">Shop<i class="ti-angle-down"></i><span
+                      class="new">New</span></a>
+                      <ul class="dropdown">
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="checkout.html">Checkout</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">Pages</a></li>
+                    <li><a href="#">Blog<i class="ti-angle-down"></i></a>
+                      <ul class="dropdown">
+                        <li><a href="blog-single-sidebar.html">Blog Single Sidebar</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+            <!--/ End Main Menu -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="product-area section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-title">
+          <h2>All Product</h2>
+          <span id="paginate" style="font-size: 15px">Bạn muốn chia bao nhiêu thể loại 1 trang: <input type="number"
+                                                                                                       (input)="changePage($event)"
+                                                                                                       value="8"
+                                                                                                       style="width: 50px"
+                                                                                                       min="0"></span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="product-info">
+
+          <div class="tab-content" id="myTabContent">
+            <!-- Start Single Tab -->
+            <div class="tab-pane fade show active" id="man" role="tabpanel">
+              <div class="tab-single">
+                <div class="row">
+                  <div class="col-xl-3 col-lg-4 col-md-4 col-12" *ngFor="let product of products| paginate: {
+              itemsPerPage:number,
+              currentPage:page,
+              totalItems:totalLength
+            }">
+                    <div class="single-product">
+                      <div class="product-img">
+                        <a href="product-details.html">
+                          <img class="default-img" src="{{product.image}}"
+                               alt="#" style="height: 300px;width: 300px">
+                          <span class="price-dec"
+                                *ngIf="product.price-product.promotional_price<product.price">Sale {{(product.price - product.promotional_price / product.price)|percent}}</span>
+                        </a>
+                        <div class="button-head">
+                          <div class="product-action">
+                            <a data-toggle="modal" data-target="#exampleModal"
+                               title="Quick View" routerLink="detail-product"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+                            <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+                            <a title="Compare" href="#"><i
+                              class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+                          </div>
+                          <div class="product-action-2">
+                            <a title="Add to cart" href="#">Add to cart</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-content" style="text-align: center">
+                        <h2><a routerLink="detail-product">{{product.product_name}}</a></h2>
+                        <div class="product-price">
+                          <span style="color: #f4b619;text-decoration: line-through;"
+                                *ngIf="product.price-product.promotional_price<product.price">{{product.price|number}}
+                            VND</span>
+                          <br *ngIf="product.price-product.promotional_price<product.price">
+                          <span style="color: #f4b619"
+                                *ngIf="product.price-product.promotional_price<product.price">{{product.promotional_price|number}}
+                            VND</span>
+                          <span style="color: #f4b619;"
+                                *ngIf="product.price-product.promotional_price==product.price">{{product.price|number}}
+                            VND</span>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

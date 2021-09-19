@@ -16,6 +16,9 @@ export class ProductService {
   showAllProduct(): Observable<any> {
     return this.http.get(environment.url_api + 'product/show-product', {headers: this.authService.setHeader()})
   }
+  showProductNew(): Observable<any> {
+    return this.http.get(environment.url_api + 'product/show-product-new', {headers: this.authService.setHeader()})
+  }
 
   showProductById(id: any): Observable<any> {
     return this.http.post(environment.url_api + 'product/' + id + '/find-product', null, {headers: this.authService.setHeader()})

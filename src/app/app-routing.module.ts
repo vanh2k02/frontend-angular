@@ -19,6 +19,8 @@ import {CreateBrandComponent} from "./components/admin/admin-brand/create-brand/
 import {AdminProductComponent} from "./components/admin/admin-product/admin-product.component";
 import {EditProductComponent} from "./components/admin/admin-product/edit-product/edit-product.component";
 import {CreateProductComponent} from "./components/admin/admin-product/create-product/create-product.component";
+import {ProductDetailComponent} from "./components/page/product-detail/product-detail.component";
+import {UserProductComponent} from "./components/page/user-product/user-product.component";
 
 const routes: Routes = [
   {
@@ -32,6 +34,14 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileUserComponent
+      },
+      {
+        path: 'detail-product',
+        component: ProductDetailComponent
+      },
+      {
+        path: 'user-product',
+        component: UserProductComponent
       }
     ], canActivate: [AuthGuard]
   },

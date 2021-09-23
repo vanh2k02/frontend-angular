@@ -38,4 +38,8 @@ export class UserDashboardComponent implements OnInit {
     })
   }
 
+  getProductById(val: any) {
+    localStorage.setItem('product_id', val);
+  }
+
 }

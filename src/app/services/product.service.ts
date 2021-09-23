@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AuthService} from "./auth.service";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
@@ -16,6 +16,7 @@ export class ProductService {
   showAllProduct(): Observable<any> {
     return this.http.get(environment.url_api + 'product/show-product', {headers: this.authService.setHeader()})
   }
+
   showProductNew(): Observable<any> {
     return this.http.get(environment.url_api + 'product/show-product-new', {headers: this.authService.setHeader()})
   }
@@ -34,5 +35,13 @@ export class ProductService {
 
   create(data: any): Observable<any> {
     return this.http.post(environment.url_api + 'product/create-product', data, {headers: this.authService.setHeader()})
+  }
+
+  addToCart(data: any): Observable<any> {
+    return this.http.post(environment.url_api + 'product/add-cart-product', data, {headers: this.authService.setHeader()})
+  }
+
+  showCart(data: any): Observable<any> {
+    return this.http.post(environment.url_api+'product/show-cart-product',data,{headers: this.authService.setHeader()})
   }
 }

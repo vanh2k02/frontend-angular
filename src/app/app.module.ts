@@ -37,6 +37,7 @@ import { EditProductComponent } from './components/admin/admin-product/edit-prod
 import { CreateProductComponent } from './components/admin/admin-product/create-product/create-product.component';
 import { ProductDetailComponent } from './components/page/product-detail/product-detail.component';
 import { UserProductComponent } from './components/page/user-product/user-product.component';
+import { ProductCartComponent } from './components/page/product-cart/product-cart.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { UserProductComponent } from './components/page/user-product/user-produc
     EditProductComponent,
     CreateProductComponent,
     ProductDetailComponent,
-    UserProductComponent
+    UserProductComponent,
+    ProductCartComponent
   ],
   imports: [
     BrowserModule,

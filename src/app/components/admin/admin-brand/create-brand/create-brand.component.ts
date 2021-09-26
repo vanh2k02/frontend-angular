@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 import {Location} from "@angular/common";
 import {BrandService} from "../../../../services/brand.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-create-brand',
@@ -13,7 +14,7 @@ import {BrandService} from "../../../../services/brand.service";
 })
 export class CreateBrandComponent implements OnInit {
   formCreateBrand: FormGroup | any;
-
+  uploadProgress$?: Observable<number>;
   constructor(private storage: AngularFireStorage, private fb: FormBuilder, private brandService: BrandService, private route: Router, private location: Location) { }
 
   ngOnInit(): void {

@@ -4,6 +4,7 @@ import {AuthService} from "../../../../services/auth.service";
 import {finalize} from "rxjs/operators";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {Router} from "@angular/router";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-edit-profile',
@@ -12,7 +13,8 @@ import {Router} from "@angular/router";
 })
 export class EditProfileComponent implements OnInit {
   formEdit: FormGroup | any;
-  user:any
+  user:any;
+  uploadProgress$?: Observable<number>;
   constructor(private fb: FormBuilder,
               private authService: AuthService,
               private storage:AngularFireStorage,

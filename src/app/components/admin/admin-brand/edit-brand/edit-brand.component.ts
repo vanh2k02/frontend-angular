@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {Location} from "@angular/common";
 import {finalize} from "rxjs/operators";
 import {BrandService} from "../../../../services/brand.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-edit-brand',
@@ -15,7 +16,7 @@ export class EditBrandComponent implements OnInit {
   id = localStorage.getItem('brand_id');
   formEditBrand: FormGroup | any;
   brand: any;
-
+  uploadProgress$?: Observable<number>;
   constructor(private brandService: BrandService,
               private storage: AngularFireStorage,
               private fb: FormBuilder, private route: Router,

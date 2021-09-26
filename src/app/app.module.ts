@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-
+import { NzCarouselModule } from 'ng-zorro-antd/carousel'
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {AdminMasterComponent} from './components/admin/admin-layouts/admin-master/admin-master.component';
@@ -38,6 +38,16 @@ import { CreateProductComponent } from './components/admin/admin-product/create-
 import { ProductDetailComponent } from './components/page/product-detail/product-detail.component';
 import { UserProductComponent } from './components/page/user-product/user-product.component';
 import { ProductCartComponent } from './components/page/product-cart/product-cart.component';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import {NzIconModule} from "ng-zorro-antd/icon";
+import {NzButtonModule} from "ng-zorro-antd/button";
+import { NzUploadModule } from 'ng-zorro-antd/upload';
+
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
@@ -80,9 +90,14 @@ import { ProductCartComponent } from './components/page/product-cart/product-car
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    NzCarouselModule,
+    NzInputModule,
+    NzIconModule,
+    NzButtonModule,
+    NzUploadModule,
   ],
-  providers: [],
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

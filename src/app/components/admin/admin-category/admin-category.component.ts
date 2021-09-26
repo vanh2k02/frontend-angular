@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CategoryService} from "../../../services/category.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-admin-category',

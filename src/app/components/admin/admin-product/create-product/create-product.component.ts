@@ -7,6 +7,7 @@ import {finalize} from "rxjs/operators";
 import {ProductService} from "../../../../services/product.service";
 import {CategoryService} from "../../../../services/category.service";
 import {BrandService} from "../../../../services/brand.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-create-product',
@@ -17,7 +18,7 @@ export class CreateProductComponent implements OnInit {
   categories: any;
   brands: any;
   formCreateProduct: FormGroup | any;
-
+  uploadProgress$?: Observable<number>;
   constructor(private storage: AngularFireStorage, private fb: FormBuilder,
               private productService: ProductService,
               private route: Router,

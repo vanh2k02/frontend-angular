@@ -1,51 +1,19 @@
-<div class="header-inner">
-  <div class="container">
-    <div class="cat-nav-head">
-      <div class="row">
-        <div class="col-lg-3">
-        </div>
-        <div class="col-lg-9 col-12">
-          <div class="menu-area">
-            <!-- Main Menu -->
-            <nav class="navbar navbar-expand-lg">
-              <div class="navbar-collapse">
-                <div class="nav-inner">
-                  <ul class="nav main-menu menu navbar-nav">
-                    <li class="active"><a routerLink="">Home</a></li>
-                    <li><a routerLink="/user-product">Product</a></li>
-                    <li><a href="#">Service</a></li>
-                    <li><a href="#">Shop<i class="ti-angle-down"></i><span
-                      class="new">New</span></a>
-                      <ul class="dropdown">
-                        <li><a href="cart.html">Cart</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="#">Pages</a></li>
-                    <li><a href="#">Blog<i class="ti-angle-down"></i></a>
-                      <ul class="dropdown">
-                        <li><a href="blog-single-sidebar.html">Blog Single Sidebar</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
-            <!--/ End Main Menu -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="product-area section">
   <div class="container">
     <div class="row">
       <div class="col-12">
+
         <div class="section-title">
+
           <h2>All Product</h2>
+          <div class="search-product">
+            <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
+              <input type="text" nz-input placeholder="input search text" (input)="searchAll($event)" style="height: 40px;"/>
+            </nz-input-group>
+            <ng-template #suffixButton>
+              <button nz-button nzType="primary" nzSize="large" nzSearch>Search</button>
+            </ng-template>
+          </div>
           <span id="paginate" style="font-size: 15px">Bạn muốn chia bao nhiêu thể loại 1 trang: <input type="number"
                                                                                                        (input)="changePage($event)"
                                                                                                        value="8"
@@ -79,7 +47,8 @@
                         <div class="button-head">
                           <div class="product-action">
                             <a data-toggle="modal" data-target="#exampleModal"
-                               title="Quick View" routerLink="detail-product"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+                               title="Quick View" routerLink="detail-product"><i
+                              class=" ti-eye"></i><span>Quick Shop</span></a>
                             <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
                             <a title="Compare" href="#"><i
                               class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>

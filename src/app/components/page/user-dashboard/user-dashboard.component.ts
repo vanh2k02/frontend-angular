@@ -7,7 +7,7 @@ import {ProductService} from "../../../services/product.service";
   styleUrls: ['./user-dashboard.component.css']
 })
 export class UserDashboardComponent implements OnInit {
-
+  array = [1, 2, 3, 4];
   products: any;
   totalLength: any;
   page: number = 1;

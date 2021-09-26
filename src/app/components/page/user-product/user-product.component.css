@@ -2,3 +2,9 @@
   position: relative;
   left: 400px;
 }
+
+.search-product {
+  position: relative;
+  right: 250px;
+  width: 300px;
+}

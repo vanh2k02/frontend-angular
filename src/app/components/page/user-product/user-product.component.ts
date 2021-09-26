@@ -32,4 +32,16 @@ export class UserProductComponent implements OnInit {
     this.number = val.target.value;
   }
 
+  findAllKeyWord(key: any) {
+    return this.products.filter((val: { category_name: any; }) => {
+      return (val.category_name.toLowerCase().indexOf(key) != -1);
+    })
+  }
+
+  searchAll(val: any) {
+    let keyWord = val.target.value.toLowerCase();
+    this.products = (keyWord) ? this.findAllKeyWord(keyWord) : this.searchVal;
+    return this.findAllKeyWord(keyWord);
+  }
+
 }

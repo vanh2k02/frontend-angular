@@ -5,6 +5,7 @@ import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 import {Location} from "@angular/common";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-edit-category',
@@ -15,6 +16,8 @@ export class EditCategoryComponent implements OnInit {
   id = localStorage.getItem('category_id');
   formEditCategory: FormGroup | any;
   category: any;
+  uploadProgress$?: Observable<number>;
+
 
   constructor(private categoryService: CategoryService,
               private storage: AngularFireStorage,
@@ -36,7 +39,7 @@ export class EditCategoryComponent implements OnInit {
 
   onSubmit() {
     this.categoryService.updateCategory(this.formEditCategory.value, this.id).subscribe(res => {
-      this.route.navigate(['admin/category']);
+      this.route.navigate(['admin/edit-category']);
     })
   }
 

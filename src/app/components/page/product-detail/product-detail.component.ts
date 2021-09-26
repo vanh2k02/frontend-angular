@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../../../services/product.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-product-detail',
@@ -13,7 +14,7 @@ export class ProductDetailComponent implements OnInit {
   product: any;
   formCart: FormGroup | any;
 
-  constructor(private productService: ProductService, private fb: FormBuilder) {
+  constructor(private productService: ProductService, private fb: FormBuilder,private location:Location) {
   }
 
   ngOnInit(): void {
@@ -28,6 +29,7 @@ export class ProductDetailComponent implements OnInit {
   onSubmit() {
     this.productService.addToCart(this.formCart.value).subscribe(res => {
       console.log(res);
+      location.reload()
     })
   }
 

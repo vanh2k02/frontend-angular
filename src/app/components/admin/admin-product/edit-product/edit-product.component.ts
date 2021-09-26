@@ -7,6 +7,7 @@ import {Location} from "@angular/common";
 import {finalize} from "rxjs/operators";
 import {ProductService} from "../../../../services/product.service";
 import {CategoryService} from "../../../../services/category.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-edit-product',
@@ -20,7 +21,7 @@ export class EditProductComponent implements OnInit {
   product: any;
   categories: any;
   brands: any;
-
+  uploadProgress$?: Observable<number>;
   constructor(private brandService: BrandService,
               private productService: ProductService,
               private categoryService: CategoryService,

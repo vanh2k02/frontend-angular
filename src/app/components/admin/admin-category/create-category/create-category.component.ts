@@ -5,7 +5,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {CategoryService} from "../../../../services/category.service";
 import {Router} from "@angular/router";
 import {Location} from "@angular/common";
-
+import {Observable} from "rxjs";
 @Component({
   selector: 'app-create-category',
   templateUrl: './create-category.component.html',
@@ -13,7 +13,7 @@ import {Location} from "@angular/common";
 })
 export class CreateCategoryComponent implements OnInit {
   formCreateCategory: FormGroup | any;
-
+  uploadProgress$?: Observable<number>;
 
   constructor(private storage: AngularFireStorage, private fb: FormBuilder, private categoryService: CategoryService, private route: Router, private location: Location) {
   }
@@ -32,12 +32,14 @@ export class CreateCategoryComponent implements OnInit {
     const filePath = `upfile/${n}`;
     const fileRef = this.storage.ref(filePath);
     // @ts-ignore
-    this.uploadProgress$ = this.storage.upload(filePath, file).percentageChanges();
+    this.uploadProgress$ = this.storage.upload(filePath,file).percentageChanges();
     this.storage.upload(filePath, file).snapshotChanges().pipe(
       finalize(() => (fileRef.getDownloadURL().subscribe(url => {
         this.formCreateCategory?.get('image')?.setValue(url);
+
       })))
     ).subscribe();
+
   }
 
   onSubmit() {
@@ -49,4 +51,5 @@ export class CreateCategoryComponent implements OnInit {
   back() {
     this.location.back();
   }
+
 }

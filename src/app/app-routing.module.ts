@@ -22,6 +22,7 @@ import {CreateProductComponent} from "./components/admin/admin-product/create-pr
 import {ProductDetailComponent} from "./components/page/product-detail/product-detail.component";
 import {UserProductComponent} from "./components/page/user-product/user-product.component";
 import {ProductCartComponent} from "./components/page/product-cart/product-cart.component";
+import {CheckOutComponent} from "./components/page/check-out/check-out.component";
 
 const routes: Routes = [
   {
@@ -47,6 +48,10 @@ const routes: Routes = [
       {
         path: 'cart-product',
         component: ProductCartComponent
+      },
+      {
+        path: 'check-out',
+        component: CheckOutComponent
       }
     ], canActivate: [AuthGuard]
   },

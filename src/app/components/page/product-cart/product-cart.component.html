@@ -4,7 +4,7 @@
       <div class="col-12">
         <div class="bread-inner">
           <ul class="bread-list">
-            <li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
+            <li><a routerLink="">Home<i class="ti-arrow-right"></i></a></li>
             <li class="active">Cart</li>
           </ul>
         </div>
@@ -43,14 +43,13 @@
             <td class="price" data-title="Price" *ngIf="product.price-product.promotional_price==product.price"><span>{{product.price|number}} VND</span></td>
             <td class="price" data-title="Price" *ngIf="product.price-product.promotional_price<product.price"><span>{{product.promotional_price|number}} VND</span></td>
             <td class="qty" data-title="Qty" style="text-align: center"><!-- Input Order -->
-                <input type="number" style="width: 50px">
+                <input type="number" style="width: 50px" value="{{product.quantity}}" (input)="changeValue($event,product.cart_id)">
               <!--/ End Input Order -->
             </td>
             <td class="total-amount" data-title="Total" *ngIf="product.price-product.promotional_price==product.price"><span>{{this.product.quantity * this.product.price|number}}</span></td>
             <td class="total-amount" data-title="Total" *ngIf="product.price-product.promotional_price<product.price"><span>{{this.product.quantity * this.product.promotional_price|number}}</span></td>
             <td class="action" data-title="Remove"><a href="#"><i class="ti-trash remove-icon"></i></a></td>
           </tr>
-
           </tbody>
         </table>
         <!--/ End Shopping Summery -->
@@ -67,7 +66,7 @@
                   <li class="last" >You Pay<span>{{totalCart()|number}}</span></li>
                 </ul>
                 <div class="button5">
-                  <a href="#" class="btn">Checkout</a>
+                  <a routerLink="/check-out" class="btn">Checkout</a>
                   <a routerLink="/user-product" class="btn">Continue shopping</a>
                 </div>
               </div>

@@ -29,7 +29,6 @@ export class ProductDetailComponent implements OnInit {
   onSubmit() {
     this.productService.addToCart(this.formCart.value).subscribe(res => {
       console.log(res);
-      location.reload()
     })
   }
 

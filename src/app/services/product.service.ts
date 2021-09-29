@@ -42,6 +42,11 @@ export class ProductService {
   }
 
   showCart(id: any): Observable<any> {
-    return this.http.get(environment.url_api+'product/'+id+'/show-cart-product',{headers: this.authService.setHeader()})
+    return this.http.get(environment.url_api + 'product/' + id + '/show-cart-product', {headers: this.authService.setHeader()})
   }
+
+  updateToCart(data: any, id: any): Observable<any> {
+    return this.http.post(environment.url_api + 'product/' + id + '/update-cart-product/'+data, null, {headers: this.authService.setHeader()})
+  }
+
 }

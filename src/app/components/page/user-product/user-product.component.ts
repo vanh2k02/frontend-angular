@@ -44,4 +44,7 @@ export class UserProductComponent implements OnInit {
     return this.findAllKeyWord(keyWord);
   }
 
+  getProductById(val: any) {
+    localStorage.setItem('product_id', val);
+  }
 }

@@ -41,4 +41,12 @@ export class ProductCartComponent implements OnInit {
     return getTotal;
   }
 
+  changeValue(val: any, id: any) {
+    let data=val.target.value;
+    this.productService.updateToCart(data, id).subscribe(res => {
+      console.log(res);
+      this.getCartProduct();
+      this.totalCart();
+    })
+  }
 }

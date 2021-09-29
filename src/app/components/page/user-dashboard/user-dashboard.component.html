@@ -6,15 +6,15 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="https://dbk.vn/uploads/ckfinder/images/tranh-anh/anh-buon-1.jpg" class="d-block w-100"
+              <img src="https://cdn.vuahanghieu.com/unsafe/0x230/left/top/smart/filters:quality(100)/https://admin.vuahanghieu.com/upload//home-banner/21-09-2021/400780948_san-sale-vuahanghieu.jpg" class="d-block w-100"
                    alt="..." style="height: 650px">
             </div>
             <div class="carousel-item">
-              <img src="https://dbk.vn/uploads/ckfinder/images/tranh-anh/anh-buon-1.jpg" class="d-block w-100"
+              <img src="https://cdn.vuahanghieu.com/unsafe/0x230/left/top/smart/filters:quality(100)/https://admin.vuahanghieu.com/upload//home-banner/13-05-2021/2022334299_sonmoichinhhang.jpg" class="d-block w-100"
                    alt="..." style="height: 650px">
             </div>
             <div class="carousel-item">
-              <img src="https://dbk.vn/uploads/ckfinder/images/tranh-anh/anh-buon-1.jpg" class="d-block w-100"
+              <img src="https://cdn.vuahanghieu.com/unsafe/0x230/left/top/smart/filters:quality(100)/https://admin.vuahanghieu.com/upload//home-banner/08-05-2021/86941160_VHH.jpg" class="d-block w-100"
                    alt="..." style="height: 650px">
             </div>
           </div>
@@ -63,7 +63,7 @@
                           <img class="default-img" src="{{product.image}}"
                                alt="#" style="height: 300px;width: 300px">
                           <span class="price-dec"
-                                *ngIf="product.price-product.promotional_price<product.price">Sale {{(product.price - product.promotional_price / product.price)|percent}}</span>
+                                *ngIf="product.price-product.promotional_price<product.price">Sale {{((product.price - product.promotional_price) / product.price)|percent}}</span>
                         </a>
                         <div class="button-head">
                           <div class="product-action">

@@ -46,6 +46,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import {NzIconModule} from "ng-zorro-antd/icon";
 import {NzButtonModule} from "ng-zorro-antd/button";
 import { NzUploadModule } from 'ng-zorro-antd/upload';
+import { CheckOutComponent } from './components/page/check-out/check-out.component';
 
 registerLocaleData(en);
 
@@ -78,7 +79,8 @@ registerLocaleData(en);
     CreateProductComponent,
     ProductDetailComponent,
     UserProductComponent,
-    ProductCartComponent
+    ProductCartComponent,
+    CheckOutComponent
   ],
   imports: [
     BrowserModule,

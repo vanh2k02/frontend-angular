@@ -30,10 +30,10 @@ export class ProductCartComponent implements OnInit {
     let getTotal = 0;
     for (let i = 0; i < this.product_count; i++) {
       if (this.products[i].promotional_price == 0) {
-        let total = this.products[i].quantity * this.products[i].price;
+        let total = this.products[i].cart_quantity * this.products[i].price;
         getTotal += total;
       } else {
-        let total = this.products[i].quantity * this.products[i].promotional_price;
+        let total = this.products[i].cart_quantity * this.products[i].promotional_price;
         getTotal += total;
       }
 

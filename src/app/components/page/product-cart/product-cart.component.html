@@ -43,7 +43,7 @@
             <td class="price" data-title="Price" *ngIf="product.price-product.promotional_price==product.price"><span>{{product.price|number}} VND</span></td>
             <td class="price" data-title="Price" *ngIf="product.price-product.promotional_price<product.price"><span>{{product.promotional_price|number}} VND</span></td>
             <td class="qty" data-title="Qty" style="text-align: center"><!-- Input Order -->
-                <input type="number" style="width: 50px" value="{{product.quantity}}" (input)="changeValue($event,product.cart_id)">
+                <input type="number" style="width: 50px" value="{{product.cart_quantity}}" (input)="changeValue($event,product.cart_id)">
               <!--/ End Input Order -->
             </td>
             <td class="total-amount" data-title="Total" *ngIf="product.price-product.promotional_price==product.price"><span>{{this.product.quantity * this.product.price|number}}</span></td>

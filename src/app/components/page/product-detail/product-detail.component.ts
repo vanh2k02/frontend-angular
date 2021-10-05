@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ProductService} from "../../../services/product.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Location} from "@angular/common";
@@ -13,7 +13,6 @@ export class ProductDetailComponent implements OnInit {
   user_id = JSON.parse(<string>sessionStorage.getItem('user'));
   product: any;
   formCart: FormGroup | any;
-
   constructor(private productService: ProductService, private fb: FormBuilder,private location:Location) {
   }
 
@@ -37,4 +36,5 @@ export class ProductDetailComponent implements OnInit {
       this.product = res;
     })
   }
+
 }

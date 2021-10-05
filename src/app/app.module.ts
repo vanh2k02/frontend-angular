@@ -47,6 +47,11 @@ import {NzIconModule} from "ng-zorro-antd/icon";
 import {NzButtonModule} from "ng-zorro-antd/button";
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { CheckOutComponent } from './components/page/check-out/check-out.component';
+import { CategoryPageComponent } from './components/page/category-page/category-page.component';
+import { BrandPageComponent } from './components/page/brand-page/brand-page.component';
+import { BrandProductComponent } from './components/page/brand-product/brand-product.component';
+import { CategoryProductComponent } from './components/page/category-product/category-product.component';
+import {DragScrollModule} from "ngx-drag-scroll";
 
 registerLocaleData(en);
 
@@ -80,7 +85,11 @@ registerLocaleData(en);
     ProductDetailComponent,
     UserProductComponent,
     ProductCartComponent,
-    CheckOutComponent
+    CheckOutComponent,
+    CategoryPageComponent,
+    BrandPageComponent,
+    BrandProductComponent,
+    CategoryProductComponent
   ],
   imports: [
     BrowserModule,
@@ -98,6 +107,7 @@ registerLocaleData(en);
     NzIconModule,
     NzButtonModule,
     NzUploadModule,
+    DragScrollModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

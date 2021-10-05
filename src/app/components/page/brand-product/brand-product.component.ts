@@ -1,30 +1,32 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {ProductService} from "../../../services/product.service";
-
+import {Component, OnInit} from '@angular/core';
+import {BrandService} from "../../../services/brand.service";
 
 @Component({
-  selector: 'app-user-product',
-  templateUrl: './user-product.component.html',
-  styleUrls: ['./user-product.component.css']
+  selector: 'app-brand-product',
+  templateUrl: './brand-product.component.html',
+  styleUrls: ['./brand-product.component.css']
 })
-export class UserProductComponent implements OnInit {
-
+export class BrandProductComponent implements OnInit {
   products: any;
   totalLength: any;
   page: number = 1;
   number = 8;
   searchVal: any;
-  constructor(private productService: ProductService) {
+  brand_id = localStorage.getItem('brand_id');
+  brand: any;
+
+  constructor(private brandService: BrandService) {
   }
 
   ngOnInit(): void {
-    this.getAllProduct()
+    this.getAllProduct();
+    this.showBrandById()
   }
 
   getAllProduct() {
-    this.productService.showAllProduct().subscribe(res => {
+    this.brandService.brandProduct(this.brand_id).subscribe(res => {
       this.products = res;
-      this.searchVal=this.products;
+      this.searchVal = this.products;
       this.totalLength = res.length;
     })
   }
@@ -49,5 +51,11 @@ export class UserProductComponent implements OnInit {
     localStorage.setItem('product_id', val);
   }
 
+  showBrandById() {
+    this.brandService.showBrandById(this.brand_id).subscribe(res => {
+      console.log(res);
+      this.brand = res;
+    })
+  }
 
 }

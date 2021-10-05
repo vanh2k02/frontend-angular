@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
@@ -9,7 +9,8 @@ import {AuthService} from "./auth.service";
 })
 export class BrandService {
 
-  constructor(private http:HttpClient,private authService:AuthService) { }
+  constructor(private http: HttpClient, private authService: AuthService) {
+  }
 
   showAllBrand(): Observable<any> {
     return this.http.get(environment.url_api + 'brand/show-brand', {headers: this.authService.setHeader()})
@@ -31,4 +32,7 @@ export class BrandService {
     return this.http.post(environment.url_api + 'brand/create-brand', data, {headers: this.authService.setHeader()})
   }
 
+  brandProduct(id: any): Observable<any> {
+    return this.http.post(environment.url_api + 'brand/'+id+'/product-brand',null, {headers: this.authService.setHeader()})
+  }
 }

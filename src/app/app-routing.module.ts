@@ -23,6 +23,10 @@ import {ProductDetailComponent} from "./components/page/product-detail/product-d
 import {UserProductComponent} from "./components/page/user-product/user-product.component";
 import {ProductCartComponent} from "./components/page/product-cart/product-cart.component";
 import {CheckOutComponent} from "./components/page/check-out/check-out.component";
+import {CategoryPageComponent} from "./components/page/category-page/category-page.component";
+import {BrandPageComponent} from "./components/page/brand-page/brand-page.component";
+import {BrandProductComponent} from "./components/page/brand-product/brand-product.component";
+import {CategoryProductComponent} from "./components/page/category-product/category-product.component";
 
 const routes: Routes = [
   {
@@ -52,6 +56,22 @@ const routes: Routes = [
       {
         path: 'check-out',
         component: CheckOutComponent
+      },
+      {
+        path: 'category-page',
+        component: CategoryPageComponent
+      },
+      {
+        path: 'brand-page',
+        component: BrandPageComponent
+      },
+      {
+        path: 'brand-product',
+        component: BrandProductComponent
+      },
+      {
+        path: 'category-product',
+        component: CategoryProductComponent
       }
     ], canActivate: [AuthGuard]
   },

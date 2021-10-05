@@ -15,7 +15,9 @@
               <div class="form-group col-12">
                 <input type="file" accept="image/*" (change)="onFileSelectedImage($event)"/>
                 <div class="progress" *ngIf="uploadProgress$ | async as progress">
-                  <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': progress + '%' }" aria-valuemax="100" aria-valuemin="0">{{progress|number}}%</div>
+                  <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': progress + '%' }"
+                       aria-valuemax="100" aria-valuemin="0">{{progress|number}}%
+                  </div>
                 </div>
               </div>
               <div class="col-md-12"><label class="labels">Name</label><input type="text" class="form-control"
@@ -25,9 +27,16 @@
               <div class="col-md-12"><label class="labels">Price</label><input type="number" class="form-control"
                                                                                placeholder="Price Product"
                                                                                formControlName="price"></div>
-              <div class="col-md-12"><label class="labels">promotional price</label><input type="number" class="form-control"
-                                                                               placeholder="Price Product"
-                                                                               formControlName="promotional_price"></div>
+              <div class="col-md-12"><label class="labels">promotional price</label><input type="number"
+                                                                                           class="form-control"
+                                                                                           placeholder="Price Product"
+                                                                                           formControlName="promotional_price">
+              </div>
+              <div class="col-md-12"><label class="labels">Quantity</label><input type="number"
+                                                                                           class="form-control"
+                                                                                           placeholder="quantity Product"
+                                                                                           formControlName="quantity">
+              </div>
             </div>
             <div class="row mt-3">
               <div class="col-md-12"><label class="labels">Description</label><textarea rows="5"
@@ -41,7 +50,8 @@
               <div class="col-md-12">
                 <select class="custom-select" formControlName="category_id">
                   <option selected>Category Product</option>
-                  <option *ngFor="let category of categories" value="{{category.category_id}}">{{category.category_name}}</option>
+                  <option *ngFor="let category of categories"
+                          value="{{category.category_id}}">{{category.category_name}}</option>
                 </select>
               </div>
             </div>

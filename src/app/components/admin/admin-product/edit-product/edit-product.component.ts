@@ -40,6 +40,7 @@ export class EditProductComponent implements OnInit {
         image: [this.product.image],
         desc: [this.product.desc],
         price: [this.product.price],
+        quantity: [this.product.quantity],
         promotional_price: [this.product.promotional_price],
         brand_id: [this.product.brand_id],
         category_id: [this.product.category_id]

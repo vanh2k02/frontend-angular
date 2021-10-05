@@ -29,6 +29,7 @@
       <th scope="col" colspan="4">Product Image</th>
       <th scope="col">Category Product</th>
       <th scope="col">Brand Product</th>
+      <th scope="col">Quantity Product</th>
       <th scope="col">Drop product</th>
     </tr>
     </thead>
@@ -43,6 +44,7 @@
       <td colspan="4"><a href="{{product.image}}"><img src="{{product.image}}" style="width: 300px"></a></td>
       <td>{{product.category_name}}</td>
       <td>{{product.brand_name}}</td>
+      <td>{{product.quantity}}</td>
       <td>
         <button class="btn btn-danger" (click)="delete(product.product_id)"><i class="fas fa-trash"></i></button>
       </td>

@@ -32,4 +32,7 @@ export class CategoryService {
   create(data: any): Observable<any> {
     return this.http.post(environment.url_api + 'category/create-category', data, {headers: this.authService.setHeader()})
   }
+  categoryProduct(id: any): Observable<any> {
+    return this.http.post(environment.url_api + 'category/'+id+'/product-category',null, {headers: this.authService.setHeader()})
+  }
 }

@@ -17,6 +17,7 @@ export class EditCategoryComponent implements OnInit {
   formEditCategory: FormGroup | any;
   category: any;
   uploadProgress$?: Observable<number>;
+  message: any;
 
 
   constructor(private categoryService: CategoryService,
@@ -39,7 +40,12 @@ export class EditCategoryComponent implements OnInit {
 
   onSubmit() {
     this.categoryService.updateCategory(this.formEditCategory.value, this.id).subscribe(res => {
-      this.route.navigate(['admin/edit-category']);
+
+      this.message = res.message;
+      setTimeout(() => {
+          this.route.navigate(['admin/category']);}
+        , 2000);
+
     })
   }
 

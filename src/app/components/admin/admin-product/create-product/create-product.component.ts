@@ -19,6 +19,7 @@ export class CreateProductComponent implements OnInit {
   brands: any;
   formCreateProduct: FormGroup | any;
   uploadProgress$?: Observable<number>;
+  message: any;
   constructor(private storage: AngularFireStorage, private fb: FormBuilder,
               private productService: ProductService,
               private route: Router,
@@ -59,7 +60,11 @@ export class CreateProductComponent implements OnInit {
 
   onSubmit() {
     this.productService.create(this.formCreateProduct.value).subscribe(res => {
-      this.route.navigate(['admin/product']);
+
+      this.message = res.message;
+      setTimeout(() => {
+          this.route.navigate(['admin/product']);}
+        , 2000);
     })
   }
 

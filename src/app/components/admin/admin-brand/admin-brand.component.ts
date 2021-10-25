@@ -12,7 +12,7 @@ export class AdminBrandComponent implements OnInit {
   page: number = 1;
   number = 2;
   searchVal: any;
-
+  message=localStorage.getItem('message')
   constructor(private brandService: BrandService) {
   }
 
@@ -23,6 +23,7 @@ export class AdminBrandComponent implements OnInit {
 
   showAllBrand() {
     this.brandService.showAllBrand().subscribe(res => {
+      console.log(res)
       this.brands = res;
       this.totalLength = res.length;
       this.searchVal = this.brands;

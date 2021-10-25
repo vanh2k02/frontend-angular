@@ -22,6 +22,7 @@ export class EditProductComponent implements OnInit {
   categories: any;
   brands: any;
   uploadProgress$?: Observable<number>;
+  message: any;
   constructor(private brandService: BrandService,
               private productService: ProductService,
               private categoryService: CategoryService,
@@ -53,7 +54,12 @@ export class EditProductComponent implements OnInit {
 
   onSubmit() {
     this.productService.updateProduct(this.formEditProduct.value, this.id).subscribe(res => {
-      this.route.navigate(['admin/product']);
+
+      this.message = res.message;
+      setTimeout(() => {
+          this.route.navigate(['admin/product']);}
+        , 2000);
+
     })
   }
 

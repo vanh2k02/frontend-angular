@@ -14,6 +14,7 @@ import {Observable} from "rxjs";
 export class CreateCategoryComponent implements OnInit {
   formCreateCategory: FormGroup | any;
   uploadProgress$?: Observable<number>;
+  message: any;
 
   constructor(private storage: AngularFireStorage, private fb: FormBuilder, private categoryService: CategoryService, private route: Router, private location: Location) {
   }
@@ -44,7 +45,12 @@ export class CreateCategoryComponent implements OnInit {
 
   onSubmit() {
     this.categoryService.create(this.formCreateCategory.value).subscribe(res => {
-      this.route.navigate(['admin/category']);
+
+      this.message = res.message;
+      setTimeout(() => {
+          this.route.navigate(['admin/category']);}
+        , 2000);
+
     })
   }
 

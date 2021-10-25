@@ -62,4 +62,5 @@ export class UserHeaderComponent implements OnInit {
     }
     return getTotal;
   }
+
 }

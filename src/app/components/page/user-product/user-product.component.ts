@@ -14,6 +14,7 @@ export class UserProductComponent implements OnInit {
   page: number = 1;
   number = 8;
   searchVal: any;
+
   constructor(private productService: ProductService) {
   }
 
@@ -24,7 +25,7 @@ export class UserProductComponent implements OnInit {
   getAllProduct() {
     this.productService.showAllProduct().subscribe(res => {
       this.products = res;
-      this.searchVal=this.products;
+      this.searchVal = this.products;
       this.totalLength = res.length;
     })
   }
@@ -45,8 +46,9 @@ export class UserProductComponent implements OnInit {
     return this.findAllKeyWord(keyWord);
   }
 
-  getProductById(val: any) {
+  getProductById(val: any, id: any) {
     localStorage.setItem('product_id', val);
+    sessionStorage.setItem('category_id', id);
   }
 
 

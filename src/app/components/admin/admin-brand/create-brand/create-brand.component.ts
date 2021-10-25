@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {finalize} from "rxjs/operators";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {FormBuilder, FormGroup} from "@angular/forms";
@@ -15,7 +15,10 @@ import {Observable} from "rxjs";
 export class CreateBrandComponent implements OnInit {
   formCreateBrand: FormGroup | any;
   uploadProgress$?: Observable<number>;
-  constructor(private storage: AngularFireStorage, private fb: FormBuilder, private brandService: BrandService, private route: Router, private location: Location) { }
+  message: any;
+
+  constructor(private storage: AngularFireStorage, private fb: FormBuilder, private brandService: BrandService, private route: Router, private location: Location) {
+  }
 
   ngOnInit(): void {
     this.formCreateBrand = this.fb.group({
@@ -41,7 +44,11 @@ export class CreateBrandComponent implements OnInit {
 
   onSubmit() {
     this.brandService.create(this.formCreateBrand.value).subscribe(res => {
-      this.route.navigate(['admin/brand']);
+      this.message = res.message;
+      setTimeout(() => {
+          this.route.navigateByUrl('admin/brand')}
+        , 2000);
+
     })
   }
 

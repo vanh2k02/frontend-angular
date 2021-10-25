@@ -1,0 +1,59 @@
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">History Detail</h1>
+  </div>
+  <div class="card" style="width: 69rem">
+    <div class="card-header" style="text-align: center;font-weight: 800">
+      shipping information
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><span>name:</span>&nbsp;{{order_details[0].transport_name}}</li>
+      <li class="list-group-item"><span>email:</span>&nbsp;{{order_details[0].transport_email}}</li>
+      <li class="list-group-item"><span>address:</span>&nbsp;{{order_details[0].transport_address}}</li>
+      <li class="list-group-item"><span>phone:</span>&nbsp;{{order_details[0].transport_phone}}</li>
+      <li class="list-group-item"><span>note:</span>&nbsp;{{order_details[0].transport_note}}</li>
+      <li class="list-group-item"><span>payment:</span>&nbsp;{{order_details[0].payment_name}}</li>
+      <li class="list-group-item"><span>order status:</span>&nbsp;{{order_details[0].order_status}}</li>
+    </ul>
+  </div>
+  <br>
+  <br>
+  <div class="card" style="width: 69rem;">
+    <div class="card-header" style="text-align: center;font-weight: 800">
+      shipping information
+    </div>
+    <div class="list-group list-group-flush">
+
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">Stt</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Image Product</th>
+          <th scope="col">Price product</th>
+          <th scope="col">Quantity product</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let order_detail of order_details;let i=index">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{order_detail.product_name}}</td>
+          <td><img src="{{order_detail.product_image}}" style="width: 300px"></td>
+          <td>{{order_detail.product_price}}</td>
+          <td>{{order_detail.product_sales_quantity}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <div style="font-weight: 800">
+        Order Total:{{order_details[0].order_total|number}} VND
+      </div>
+      <div style="font-weight: 800">
+        Thời gian đơn hàng:{{order_details[0].created}}<br>
+        Thời gian xác nhận:{{order_details[0].updated}}
+      </div>
+    </div>
+  </div>
+</div>
+

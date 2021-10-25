@@ -5,6 +5,12 @@
         <div class="bread-inner">
           <ul class="bread-list">
             <li><a routerLink="">Home<i class="ti-arrow-right"></i></a></li>
+            <li *ngIf="category_id"><a routerLink="/category-product"
+                                       (click)="getProductById(product.category_id)">{{product.category_name}}<i
+              class="ti-arrow-right"></i></a></li>
+            <li *ngIf="brand_id"><a routerLink="/brand-product"
+                                    (click)="getById(product.brand_id)">{{product.brand_name}}<i
+              class="ti-arrow-right"></i></a></li>
             <li class="active">{{product.product_name}}</li>
           </ul>
         </div>
@@ -14,6 +20,7 @@
 </div>
 <div class="container">
 
+  <nz-alert *ngIf="message" nzType="success" nzMessage="{{message}}"></nz-alert>
 
   <div class="col-sm-9 padding-right">
     <div class="product-details"><!--product-details-->
@@ -43,13 +50,18 @@
             <br>
             <br>
 									<label>Quantity:</label>
-									<input type="number" value="3" formControlName="quantity"/>
-									<button class="btn btn-fefault cart">
+									<input type="number" formControlName="quantity"/>
+									<button *ngIf="product.quantity==0" class="btn btn-fefault cart" disabled>
+										<i class="fa fa-shopping-cart"></i>
+										Add to cart
+									</button>
+
+              <button *ngIf="product.quantity>0" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
 										Add to cart
 									</button>
 								</span>
-            <p><b>Tinh Trang:</b> Con hang</p>
+            <p><b>Tinh Trang:</b>Còn {{product.quantity}} sản phẩm</p>
             <p><b>Category:</b> {{product.category_name}}</p>
             <p><b>Brand:</b> {{product.brand_name}}</p>
           </div><!--/product-information-->
@@ -88,4 +100,39 @@
   </div>
 
 </div>
+<div class="product-area most-popular section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-title">
+          <h2>Related Products</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-12" *ngFor="let product of products| paginate: {
+              itemsPerPage:number,
+              currentPage:page,
+              totalItems:totalLength
+            }">
+        <!-- Start Single Blog  -->
+        <div class="shop-single-blog">
+          <a href="{{product.image}}">
+            <img src="{{product.image}}" alt="#">
+          </a>
+          <div class="content">
+            <a routerLink="detail-product" (click)="getProductId(product.product_id,product.category_id)">
+              <p class="date" style="text-align: center">{{product.product_name}}</p>
+            </a>
+          </div>
+        </div>
+        <!-- End Single Blog  -->
+      </div>
+    </div>
+    <!-- End Shop Blog  -->
 
+    <!-- Start Shop Services Area -->
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+
+  </div>
+</div>

@@ -71,7 +71,7 @@
                         </div>
                       </div>
                       <div class="product-content" style="text-align: center">
-                        <h2><a routerLink="/detail-product" (click)="getProductById(product.product_id)">{{product.product_name}}</a></h2>
+                        <h2><a routerLink="/detail-product" (click)="getProductById(product.product_id,product.category_id)">{{product.product_name}}</a></h2>
                         <div class="product-price">
                           <span style="color: #f4b619;text-decoration: line-through;"
                                 *ngIf="product.price-product.promotional_price<product.price">{{product.price|number}}

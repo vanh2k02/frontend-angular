@@ -1,20 +1,20 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from "../../../services/auth.service";
 import {PaymentService} from "../../../services/payment.service";
 
 @Component({
-  selector: 'app-admin-dashboard',
-  templateUrl: './admin-dashboard.component.html',
-  styleUrls: ['./admin-dashboard.component.css']
+  selector: 'app-admin-history',
+  templateUrl: './admin-history.component.html',
+  styleUrls: ['./admin-history.component.css']
 })
-export class AdminDashboardComponent implements OnInit {
+export class AdminHistoryComponent implements OnInit {
+
   orders: any;
   totalLength: any;
   page: number = 1;
   number = 10;
   searchVal: any;
 
-  constructor(private paymentService: PaymentService) {
+  constructor(private paymentService:PaymentService) {
   }
 
   ngOnInit(): void {
@@ -22,7 +22,8 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   showOrder() {
-    this.paymentService.showOrder().subscribe(res => {
+    this.paymentService.showHistory().subscribe(res => {
+      console.log(res);
       this.orders = res;
       this.totalLength = res.length;
       this.searchVal = this.orders;
@@ -48,4 +49,5 @@ export class AdminDashboardComponent implements OnInit {
   findById(val: any) {
     localStorage.setItem('order_detail', val);
   }
+
 }

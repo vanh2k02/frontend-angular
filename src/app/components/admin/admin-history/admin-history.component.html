@@ -2,7 +2,7 @@
 
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+    <h1 class="h3 mb-0 text-gray-800">History</h1>
   </div>
   <div>
     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -40,7 +40,7 @@
               totalItems:totalLength
             };let i=index">
         <th scope="row">{{i+1}}</th>
-        <td><a routerLink="order_detail" (click)="findById(order.order_id)">{{order.name}}</a></td>
+        <td><a routerLink="history-admin-detail" (click)="findById(order.order_id)">{{order.name}}</a></td>
         <td>{{order.order_total|number}} VND</td>
         <td>{{order.order_status}}</td>
       </tr>

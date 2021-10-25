@@ -29,5 +29,6 @@ export class CategoryPageComponent implements OnInit {
 
   getProductById(val: any) {
     localStorage.setItem('category_id', val);
+
   }
 }

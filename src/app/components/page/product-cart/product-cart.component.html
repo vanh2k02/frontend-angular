@@ -46,9 +46,9 @@
                 <input type="number" style="width: 50px" value="{{product.cart_quantity}}" (input)="changeValue($event,product.cart_id)">
               <!--/ End Input Order -->
             </td>
-            <td class="total-amount" data-title="Total" *ngIf="product.price-product.promotional_price==product.price"><span>{{this.product.quantity * this.product.price|number}}</span></td>
-            <td class="total-amount" data-title="Total" *ngIf="product.price-product.promotional_price<product.price"><span>{{this.product.quantity * this.product.promotional_price|number}}</span></td>
-            <td class="action" data-title="Remove"><a href="#"><i class="ti-trash remove-icon"></i></a></td>
+            <td class="total-amount" data-title="Total" *ngIf="product.price-product.promotional_price==product.price"><span>{{this.product.cart_quantity * this.product.price|number}} VND</span></td>
+            <td class="total-amount" data-title="Total" *ngIf="product.price-product.promotional_price<product.price"><span>{{this.product.cart_quantity * this.product.promotional_price|number}} VND</span></td>
+            <td class="action" data-title="Remove"><a (click)="deleteCart(product.cart_id)"><i class="ti-trash remove-icon"></i></a></td>
           </tr>
           </tbody>
         </table>
@@ -63,7 +63,7 @@
             <div class="col-lg-4 col-md-7 col-12">
               <div class="right">
                 <ul>
-                  <li class="last" >You Pay<span>{{totalCart()|number}}</span></li>
+                  <li class="last" >You Pay<span>{{totalCart()|number}} VND</span></li>
                 </ul>
                 <div class="button5">
                   <a routerLink="/check-out" class="btn">Checkout</a>

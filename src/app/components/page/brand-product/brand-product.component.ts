@@ -47,8 +47,10 @@ export class BrandProductComponent implements OnInit {
     return this.findAllKeyWord(keyWord);
   }
 
-  getProductById(val: any) {
+  getProductById(val: any,id:any) {
     localStorage.setItem('product_id', val);
+    localStorage.removeItem('category_id');
+    sessionStorage.setItem('category_id', id);
   }
 
   showBrandById() {

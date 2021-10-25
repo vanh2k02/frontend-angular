@@ -14,12 +14,14 @@ export class CheckOutComponent implements OnInit {
   products: any;
   product_count: any;
   payments: any;
+  message: any;
 
   constructor(private fb: FormBuilder, private paymentService: PaymentService, private productService: ProductService) {
     this.checkOut = this.fb.group({
       name: [''],
       phone: [''],
       address: [''],
+      note: [''],
       email: [''],
       payment_id: [''],
       user_id: [this.user_id.id]
@@ -33,8 +35,12 @@ export class CheckOutComponent implements OnInit {
   }
 
   onSubmit() {
-    this.paymentService.CreatePayment(this.checkOut.value,this.totalCart()).subscribe(res => {
+    this.paymentService.CreatePayment(this.checkOut.value, this.totalCart()).subscribe(res => {
       console.log(res);
+      this.message = res.message;
+      setTimeout(() => {
+        this.message = '';
+      }, 3000);
     })
 
   }
@@ -64,6 +70,7 @@ export class CheckOutComponent implements OnInit {
 
   showPayment() {
     this.paymentService.showPayment().subscribe(res => {
+
       this.payments = res;
     })
   }

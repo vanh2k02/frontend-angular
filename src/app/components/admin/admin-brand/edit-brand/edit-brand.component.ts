@@ -17,6 +17,7 @@ export class EditBrandComponent implements OnInit {
   formEditBrand: FormGroup | any;
   brand: any;
   uploadProgress$?: Observable<number>;
+  message:any
   constructor(private brandService: BrandService,
               private storage: AngularFireStorage,
               private fb: FormBuilder, private route: Router,
@@ -37,7 +38,12 @@ export class EditBrandComponent implements OnInit {
 
   onSubmit() {
     this.brandService.updateBrand(this.formEditBrand.value, this.id).subscribe(res => {
-      this.route.navigate(['admin/brand']);
+
+      this.message = res.message;
+      setTimeout(() => {
+          this.route.navigate(['admin/brand']);}
+        , 2000);
+
     })
   }
 

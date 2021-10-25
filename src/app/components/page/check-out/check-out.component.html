@@ -22,8 +22,8 @@
       <div class="row">
         <div class="col-lg-8 col-12">
           <div class="checkout-form">
-            <h2>Make Your Checkout Here</h2>
-            <p>Please register in order to checkout more quickly</p>
+            <nz-alert *ngIf="message" nzType="success" nzMessage="{{message}}"></nz-alert>
+
             <!-- Form -->
 
             <div class="row">
@@ -49,6 +49,12 @@
                 <div class="form-group">
                   <label>Address<span>*</span></label>
                   <input type="text" formControlName="address" placeholder="" required="required">
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12">
+                <div class="form-group">
+                  <label>Note<span>*</span></label>
+                  <textarea formControlName="note" rows="5"></textarea>
                 </div>
               </div>
             </div>

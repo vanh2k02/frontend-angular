@@ -2,6 +2,8 @@
       integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 <div id="form">
   <div class="container rounded bg-white mt-5 mb-5">
+    <nz-alert *ngIf="message" nzType="success" nzMessage="{{message}}"></nz-alert>
+
     <div class="row">
       <div class="col-md-3 border-right">
         <div class="d-flex flex-column align-items-center text-center p-3 py-5"><a href="{{product.image}}">

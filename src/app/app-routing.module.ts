@@ -27,6 +27,9 @@ import {CategoryPageComponent} from "./components/page/category-page/category-pa
 import {BrandPageComponent} from "./components/page/brand-page/brand-page.component";
 import {BrandProductComponent} from "./components/page/brand-product/brand-product.component";
 import {CategoryProductComponent} from "./components/page/category-product/category-product.component";
+import {OrderDetailComponent} from "./components/admin/order-detail/order-detail.component";
+import {AdminHistoryComponent} from "./components/admin/admin-history/admin-history.component";
+import {AdminHistoryDetailComponent} from "./components/admin/admin-history-detail/admin-history-detail.component";
 
 const routes: Routes = [
   {
@@ -126,6 +129,18 @@ const routes: Routes = [
       {
         path: 'create-product',
         component: CreateProductComponent
+      },
+      {
+        path: 'order_detail',
+        component: OrderDetailComponent
+      },
+      {
+        path: 'history-admin',
+        component: AdminHistoryComponent
+      },
+      {
+        path: 'history-admin/history-admin-detail',
+        component: AdminHistoryDetailComponent
       }
     ], canActivate: [AuthGuard]
   },

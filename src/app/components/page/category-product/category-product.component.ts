@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {BrandService} from "../../../services/brand.service";
 import {CategoryService} from "../../../services/category.service";
 
 @Component({
@@ -49,8 +48,10 @@ export class CategoryProductComponent implements OnInit {
     return this.findAllKeyWord(keyWord);
   }
 
-  getProductById(val: any) {
+  getProductById(val: any,id:any) {
+    localStorage.removeItem('brand_id');
     localStorage.setItem('product_id', val);
+    sessionStorage.setItem('category_id', id);
   }
 
   showBrandById() {

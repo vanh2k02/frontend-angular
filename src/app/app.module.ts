@@ -52,6 +52,10 @@ import { BrandPageComponent } from './components/page/brand-page/brand-page.comp
 import { BrandProductComponent } from './components/page/brand-product/brand-product.component';
 import { CategoryProductComponent } from './components/page/category-product/category-product.component';
 import {DragScrollModule} from "ngx-drag-scroll";
+import { OrderDetailComponent } from './components/admin/order-detail/order-detail.component';
+import {NzAlertModule} from "ng-zorro-antd/alert";
+import { AdminHistoryComponent } from './components/admin/admin-history/admin-history.component';
+import { AdminHistoryDetailComponent } from './components/admin/admin-history-detail/admin-history-detail.component';
 
 registerLocaleData(en);
 
@@ -89,26 +93,30 @@ registerLocaleData(en);
     CategoryPageComponent,
     BrandPageComponent,
     BrandProductComponent,
-    CategoryProductComponent
+    CategoryProductComponent,
+    OrderDetailComponent,
+    AdminHistoryComponent,
+    AdminHistoryDetailComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatDialogModule,
-    AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
-    NgxPaginationModule,
-    FormsModule,
-    NzCarouselModule,
-    NzInputModule,
-    NzIconModule,
-    NzButtonModule,
-    NzUploadModule,
-    DragScrollModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatDialogModule,
+        AngularFireStorageModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+        NgxPaginationModule,
+        FormsModule,
+        NzCarouselModule,
+        NzInputModule,
+        NzIconModule,
+        NzButtonModule,
+        NzUploadModule,
+        DragScrollModule,
+        NzAlertModule
+    ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
 })
